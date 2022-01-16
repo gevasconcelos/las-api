@@ -24,13 +24,13 @@ function capitalizar(palavra) {
 // (30, Alimentação) => 0
 // (10, Bebida) => 1
 function calculaImposto(precoOriginal, categoriaDoProduto) { 
-    let valorDoImposto = 0;
+
     if(categoriaDoProduto === "Alimentação"){
-        valorDoImposto = 0;
+        return 0;
     }else{
-        valorDoImposto = ((10*precoOriginal)/100);
+        return ((10*precoOriginal)/100);
     }
-    return valorDoImposto;
+    
 }
 
 // Escreva uma função que recebe um preço original, uma categoria de produto e um cupom de desconto e calcula o preço com desconto. Se a categoria for Alimentação e o cupom for NULABSSA, deve ser feito um desconto de 50%. Caso contrário, não há nenhum desconto.
@@ -39,15 +39,13 @@ function calculaImposto(precoOriginal, categoriaDoProduto) {
 // (30, Alimentação, XPTO) => 30
 // (10, Bebida, XPTO) => 10
 function calculaDesconto(precoOriginal, categoriaDoProduto, cupomDeDesconto) {
-    let precoComDesconto = 0, desconto = 0;;
-
+    let desconto = 0;
     if(categoriaDoProduto === "Alimentação" && cupomDeDesconto === "NULABSSA"){
-        desconto =  ((50*precoOriginal)/100);
-        precoComDesconto = precoOriginal - desconto;
+        desconto = ((50*precoOriginal)/100);
+        return precoOriginal - desconto;
     }else{
-        precoComDesconto = precoOriginal;
+        return precoOriginal;
     }
-    return precoComDesconto;
  }
  
 
@@ -62,11 +60,10 @@ function calculaDesconto(precoOriginal, categoriaDoProduto, cupomDeDesconto) {
 function truncar(palavra, comprimentoMaximo = 5) { 
     let truncado = "";
     if(palavra.length <= comprimentoMaximo){
-        truncado = palavra
+        return palavra
     }else if(palavra.length > comprimentoMaximo){
-        truncado =  palavra.substring(0, comprimentoMaximo)+"...";
+       return  palavra.substring(0, comprimentoMaximo)+"...";
     }
-    return truncado;
 }
 
 // Escreva uma função que valida se o texto informado está preenchido e retorna o texto sem espaços antes ou depois.
